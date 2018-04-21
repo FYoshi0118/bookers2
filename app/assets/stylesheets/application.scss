@@ -11,7 +11,36 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
-   *= require_self
-   */
-   @import "bootstrap-sprockets";
-   @import "bootstrap";
+  *= require_self
+*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+* {
+ box-sizing: border-box;
+}
+.nav-title {
+ color: white;
+ font-size: 20px;
+}
+.container {
+ margin-left: auto;
+ margin-left: auto;
+ padding-left: 15px;
+ padding-right: 15px;
+}
+.nav {
+ list-style: none;
+}
+ul {
+ font-size: 13px;
+ line-height: 18px
+}
+.nav li a {
+ display: block;
+ padding: 15px 15px;
+}
+.glyphicon {
+ top: 1px;
+ padding-right: 10px;
+}
