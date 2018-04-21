@@ -1,0 +1,38 @@
+.body {
+  margin-top: 51px;
+}
+strong {
+  font-weight: bold;
+}
+p {
+  margin: 0 0 10px;
+}
+a {
+  text-decoration: none;
+}
+
+// sign_upとloginの設定
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+}
