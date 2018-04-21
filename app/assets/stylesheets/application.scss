@@ -22,18 +22,20 @@
 p {
   margin: 0 0 10px;
 }
+.div {
+  display: block;
+}
+
+// header設定
 .nav-title {
  color: white;
  font-size: 20px;
 }
-.container {
- margin-left: auto;
- margin-left: auto;
- padding-left: 15px;
- padding-right: 15px;
-}
 .nav {
  list-style: none;
+}
+.navbar {
+  min-height: 50px;
 }
 ul {
  font-size: 13px;
@@ -46,4 +48,14 @@ ul {
 .glyphicon {
  top: 1px;
  padding-right: 10px;
+}
+
+// .body {
+//   margin-top: 51px;
+// }
+.container {
+ margin-left: auto;
+ margin-left: auto;
+ padding-left: 15px;
+ padding-right: 15px;
 }
