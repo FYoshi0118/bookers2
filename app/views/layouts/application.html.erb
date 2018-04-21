@@ -19,6 +19,7 @@
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li>
+                <%# TODO: ログイン時はユーザのマイページに飛ぶようにする %>
                 <%= link_to 'Home', '#', :class => 'glyphicon glyphicon-home' %>
               </li>
               <li>
@@ -31,11 +32,11 @@
                 <%= link_to 'logout', destroy_user_session_path, :class => 'glyphicon glyphicon-log-out' %>
               </li>
             <% else %>
-              <li style="color: white;">
-                <%= link_to 'Home', '#', :class => 'glyphicon glyphicon-home' %>
+              <li>
+                <%= link_to 'Home', '/', :class => 'glyphicon glyphicon-home' %>
               </li>
               <li>
-                <%= link_to 'about', '#', :class => 'glyphicon glyphicon-link' %>
+                <%= link_to 'about', 'home/about', :class => 'glyphicon glyphicon-link' %>
               </li>
               <li>
                 <%= link_to 'sign up', new_user_registration_path, :class => 'glyphicon glyphicon-edit' %>
@@ -49,7 +50,14 @@
       </div>
     </header>
 
-    <%= yield %>
+    <div class="body">
+      <div class="container">
+        <p id="notice"><%= notice %></p>
+
+        <%= yield %>
+
+      </div>
+    </div>
 
   </body>
 </html>
