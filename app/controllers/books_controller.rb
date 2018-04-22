@@ -1,9 +1,11 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
+
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
-      redirect_to 'http://localhost:3000/users/1' # TODO: リダイレクト先はbookの詳細ページ
+      redirect_to book_path(@book.id)
     else
       render :new
     end
@@ -13,28 +15,30 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
     @new_book = Book.new
   end
 
   def edit
-    @book = Book.find(params[:id])
   end
 
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to book_path(book.id)
+    if @book.update(book_params)
+      redirect_to book_path(@book.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @book = Book.find(params[:id])
     @book.destroy
     # TODO: destroyのリダイレクト先はBooksの一覧にする
     redirect_to user_path(current_user.id)
   end
 
   private
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
   def book_params
     params.require(:book).permit(:title, :opinion, :user_id)
