@@ -19,7 +19,6 @@
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li>
-                <%# TODO: ログイン時はユーザのマイページに飛ぶようにする %>
                 <%= link_to 'Home', user_path(current_user.id), :class => 'glyphicon glyphicon-home' %>
               </li>
               <li>
