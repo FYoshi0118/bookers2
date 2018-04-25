@@ -1,6 +1,6 @@
 <div class="row">
 
-  <%= render 'users/list', user: @user, book: @book %>
+  <%= render 'users/list', user: @user, book: @new_book %>
 
   <div class="col-xs-9">
     <h2> Books </h2>
@@ -14,18 +14,16 @@
         </tr>
       </thead>
       <tbody>
-        <% @books.each do |book| %>
+        <% @user.books.each do |book_info| %>
           <tr>
             <td>
-              <%# TODO: profile image更新出来るようにする %>
-              <!-- <%= image_tag 'no_image_icon.jpg', :class => 'attachment user profile_image fallback', size: '40x40' %> -->
               <%= attachment_image_tag @user, :profile_image, size: '40x40', fallback: 'no_image.jpg' %>
             </td>
             <td>
-              <%= link_to book.title, book_path(book.id) %>
+              <%= link_to book_info.title, book_path(book_info) %>
             </td>
             <td>
-              <%= book.opinion %>
+              <%= book_info.opinion %>
             </td>
           </tr>
         <% end %>

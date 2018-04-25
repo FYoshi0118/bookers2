@@ -17,13 +17,9 @@
       <tbody>
         <% @users.each do |user_info| %>
           <tr>
-            <td>
-              <%= attachment_image_tag user_info, :profile_image, size: '40x40', fallback: 'no_image.jpg' %>
-            </td>
+            <td> <%= attachment_image_tag user_info, :profile_image, size: '40x40', fallback: 'no_image.jpg' %> </td>
             <td> <%= user_info.name %> </td>
-            <td>
-              <%= link_to 'Show', user_path(user_info.id) %>
-            </td>
+            <td> <%= link_to 'Show', user_path(user_info.id) %> </td>
           </tr>
         <% end %>
       </tbody>
