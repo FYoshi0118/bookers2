@@ -1,0 +1,40 @@
+<%# 左側に来る 「User info」「New Book」を部分テンプレ化 %>
+<%# 変数：user、user_name、user_introduction、book %>
+
+<div class="col-xs-3">
+  <h2> User info </h2>
+  <%= attachment_image_tag user, :profile_image, size: '100x100', fallback: 'no_image.jpg' %>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th> name </th>
+        <th> <%= user.name %> </th>
+      </tr>
+      <tr>
+        <th> introduction </th>
+        <th> <%= user.user_introduction %> </th>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <% if user.id == current_user.id %>
+      <%= link_to '', edit_user_path(user.id), :class => 'col-xs-12 btn btn-default glyphicon glyphicon-wrench' %>
+    <% else %>
+      <%= link_to '', user_path(user.id), :class => 'col-xs-12 btn btn-default glyphicon glyphicon-wrench' %>
+    <% end %>
+  </div>
+  <h2> New book</h2>
+  <%= form_for(book) do |f| %>
+    <div class="field row">
+      <%= f.label :title, 'Title' %>
+      <%= f.text_field :title, :class => 'col-xs-12' %>
+    </div>
+    <div class="field row">
+      <%= f.label :opinion, 'Opinion' %>
+      <%= f.text_area :opinion, :class => 'col-xs-12' %>
+    </div>
+    <div class="actions row">
+      <%= f.submit "Create Book", :class => 'btn btn-primary col-xs-12' %>
+    </div>
+  <% end %>
+</div>
