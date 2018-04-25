@@ -1,0 +1,32 @@
+<div class="row">
+
+  <%# UserInfo NewBook %>
+  <%= render 'users/list', user: current_user, book: @book %>
+
+  <%# Uers一覧 %>
+  <div class="col-xs-9">
+    <h2> Users </h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th> image </th>
+          <th> name </th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user_info| %>
+          <tr>
+            <td>
+              <%= attachment_image_tag user_info, :profile_image, size: '40x40', fallback: 'no_image.jpg' %>
+            </td>
+            <td> <%= user_info.name %> </td>
+            <td>
+              <%= link_to 'Show', user_path(user_info.id) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
