@@ -1,22 +1,18 @@
 <%# 左側に来る 「User info」「New Book」を部分テンプレ化 %>
 <%# 変数：user、user_name、user_introduction、book %>
 
-<%# profile_imageは更新出来るようにすること %>
-
 <div class="col-xs-3">
   <h2> User info </h2>
-  <%# TODO: profile image更新出来るようにする %>
-  <!-- <%= image_tag 'no_image.jpg', :class => 'attachment user profile_image fallback', size: '100x100' %> -->
   <%= attachment_image_tag user, :profile_image, size: '100x100', fallback: 'no_image.jpg' %>
   <table class="table">
     <tbody>
       <tr>
         <th> name </th>
-        <th> <%= user_name %> </th>
+        <th> <%= user.name %> </th>
       </tr>
       <tr>
         <th> introduction </th>
-        <th> <%= user_introduction %> </th>
+        <th> <%= user.user_introduction %> </th>
       </tr>
     </tbody>
   </table>
