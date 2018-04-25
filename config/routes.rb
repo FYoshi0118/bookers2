@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/' => 'home#top'
+  get '/' => 'home#top', as: 'home'
   get '/about' => 'home#about'
 
   # root 'users#show'
