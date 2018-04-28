@@ -7,7 +7,8 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book.id)
     else
-      render :new
+      # render :new
+      redirect_to books_path
     end
   end
 
@@ -28,11 +29,14 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    if @book.update(book_params)
-      redirect_to book_path(@book.id)
-    else
-      render :edit
-    end
+    # if @book.update(book_params)
+    #   redirect_to book_path(@book.id)
+    # else
+    #   redirect_to book_path(@book.id)
+    # end
+    # 保存出来ても出来なくてもbook#showに飛ぶ
+    @book.update(book_params)
+    redirect_to book_path(@book.id)
   end
 
   def destroy

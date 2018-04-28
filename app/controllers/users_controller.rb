@@ -18,11 +18,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to user_path(@user.id)
-    else
-      render :edit
-    end
+    # if @user.update(user_params)
+    #   redirect_to user_path(@user.id)
+    # else
+    #   render :edit
+    # end
+    # 保存出来ても出来なくてもマイページに飛ぶ
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
   end
 
   private
