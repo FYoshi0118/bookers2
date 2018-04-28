@@ -15,7 +15,6 @@
       </div>
     <% end %>
     <%= link_to 'Show |', book_path(@book.id) %>
-    <%# TODO: Backのリンクは/booksにする %>
-    <%= link_to 'Back', book_path(@book.id) %>
+    <%= link_to 'Back', books_path %>
   </div>
 </div>
