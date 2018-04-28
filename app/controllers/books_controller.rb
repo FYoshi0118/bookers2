@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :ensure_correct_book, only: [:edit, :update]
+
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
@@ -36,12 +38,19 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    # TODO: destroyのリダイレクト先はBooksの一覧にする
-    redirect_to user_path(current_user.id)
+    redirect_to books_path
   end
 
   private
   def book_params
     params.require(:book).permit(:title, :opinion, :user_id)
+  end
+
+  def ensure_correct_book
+    @book = Book.find(params[:id])
+    # binding.pry
+    if current_user.id != @book.user_id
+      redirect_to books_path
+    end
   end
 end
